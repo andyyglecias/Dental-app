@@ -1,5 +1,5 @@
 <% @patients.each do |patient| %>
-    <h1><%= patient.full_name%></h1>
-    <h3><%= patient.balance_total%></h3>
-    <h3><%= patient.contact_methods%>
+    <h1> Patient Name: <%= patient.full_name%></h1>
+    <h3> Total Balance: <%= patient.balance_total%></h3>
+    <h3> Contact:<%= patient.contact_methods%>
 <%end%>
