@@ -3,15 +3,33 @@ class Patient < ApplicationRecord
     has_many :ledgers
 
 
+    def full_name
+        "#{first_name} #{last_name}"
+    end
 
-    def balance_total
+    def contact_methods
+        "#{email} or #{phone_number}" 
+    end
+    
+    
+    def ledger_bills
         list = ledgers.map { |ledger| ledger.amount}
-        index = 0
+    end    
+    
+    
+    
+    def balance_total
+        i = 0
         total = 0
-        while index < list.length
-            total = total + list[index]
-            index += 1
+        while i < ledger_bills.length
+            total = total + ledger_bills[i]
+            i += 1
         end
         return total
     end
+
+
 end
+
+
+
